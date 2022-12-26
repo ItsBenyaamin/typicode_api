@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApiModule {
+object ApiModule {
 
     @Singleton
     @Provides
@@ -27,6 +27,7 @@ class ApiModule {
     @Provides
     fun provideTypiCodeApi(client: OkHttpClient): TypiCodeApi {
         val retrofit = Retrofit.Builder()
+            .baseUrl("https://jsonplaceholder.typicode.com/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build();
