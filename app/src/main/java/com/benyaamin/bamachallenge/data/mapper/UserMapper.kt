@@ -4,7 +4,7 @@ import com.benyaamin.bamachallenge.data.remote.dto.Address
 import com.benyaamin.bamachallenge.data.remote.dto.Company
 import com.benyaamin.bamachallenge.data.remote.dto.Geo
 import com.benyaamin.bamachallenge.data.remote.dto.User
-import com.benyaamin.bamachallenge.domain.UserEntity
+import com.benyaamin.bamachallenge.domain.model.UserEntity
 
 fun User.toEntity(): UserEntity {
     return UserEntity(
