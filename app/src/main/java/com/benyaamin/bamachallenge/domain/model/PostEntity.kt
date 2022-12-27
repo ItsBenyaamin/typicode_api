@@ -1,4 +1,4 @@
-package com.benyaamin.bamachallenge.domain
+package com.benyaamin.bamachallenge.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
