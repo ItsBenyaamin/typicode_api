@@ -2,7 +2,8 @@ package com.benyaamin.bamachallenge.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.benyaamin.bamachallenge.domain.*
+import com.benyaamin.bamachallenge.domain.model.PostEntity
+import com.benyaamin.bamachallenge.domain.model.UserEntity
 
 @Database(
     entities = [
