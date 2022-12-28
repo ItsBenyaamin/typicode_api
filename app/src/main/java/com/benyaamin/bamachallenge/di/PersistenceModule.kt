@@ -3,6 +3,8 @@ package com.benyaamin.bamachallenge.di
 import android.content.Context
 import androidx.room.Room
 import com.benyaamin.bamachallenge.data.local.AppDatabase
+import com.benyaamin.bamachallenge.data.local.PostsDao
+import com.benyaamin.bamachallenge.data.local.UsersDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +24,18 @@ object PersistenceModule {
             AppDatabase::class.java,
             "bama.db"
         ).build()
+    }
+
+    @Singleton
+    @Provides
+    fun providePostsDao(db: AppDatabase): PostsDao {
+        return db.getPostsDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideUsersDao(db: AppDatabase): UsersDao {
+        return db.getUsersDao()
     }
 
 }
