@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bama Challenge</string>
+    <string name="fetch_error">Failed to fetch data from server! Please try again later</string>
+    <string name="internet_unavailable">Internet is unavailabe! Please check your connections.</string>
 </resources>
