@@ -5,8 +5,8 @@ import com.benyaamin.bamachallenge.domain.model.PostEntity
 
 fun PostEntity.toPost(): Post {
     return Post(
-        postId,
         userId,
+        postId,
         title,
         body
     )
@@ -14,8 +14,8 @@ fun PostEntity.toPost(): Post {
 
 fun Post.toEntity(): PostEntity {
     return PostEntity(
-        userId,
         id,
+        userId,
         title,
         body
     )
