@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class UserEntity(
+    @PrimaryKey()
     val userId: Int,
     val name: String,
     val username: String,
@@ -19,7 +20,5 @@ data class UserEntity(
     val website: String,
     val companyName: String,
     val companyCatchPhrase: String,
-    val companyBs: String,
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0
+    val companyBs: String
 )
