@@ -21,7 +21,7 @@ fun PostItem(post: Post, onClick: ((postId: Int) -> Unit)? = null) {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(4.dp),
+            .padding(8.dp),
         onClick = { onClick?.invoke(post.id) }
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
