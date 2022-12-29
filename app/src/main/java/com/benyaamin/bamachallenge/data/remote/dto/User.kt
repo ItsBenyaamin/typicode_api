@@ -17,7 +17,7 @@ data class Address (
     @field:Json(name = "street") val street: String,
     @field:Json(name = "suite") val suite: String,
     @field:Json(name = "city") val city: String,
-    @field:Json(name = "zipCode") val zipCode: String,
+    @field:Json(name = "zipcode") val zipCode: String,
     @field:Json(name = "geo") val geo: Geo
 )
 

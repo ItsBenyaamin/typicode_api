@@ -1,4 +1,4 @@
-package com.benyaamin.bamachallenge.util
+package com.benyaamin.bamachallenge.data.mapper
 
 import com.benyaamin.bamachallenge.data.remote.dto.Address
 import com.benyaamin.bamachallenge.data.remote.dto.Company
