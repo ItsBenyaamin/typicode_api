@@ -10,8 +10,10 @@ import com.benyaamin.bamachallenge.domain.repository.UserRepository
 import com.benyaamin.bamachallenge.util.NetworkHelper
 import com.benyaamin.bamachallenge.util.Resource
 import com.benyaamin.bamachallenge.util.toEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class UserRepositoryImpl(
     private val usersDao: UsersDao,
@@ -36,7 +38,7 @@ class UserRepositoryImpl(
                     emit(Resource.OnError(messageId = R.string.fetch_error))
                 }
             }
-        }
+        }.flowOn(Dispatchers.IO)
     }
 
 }

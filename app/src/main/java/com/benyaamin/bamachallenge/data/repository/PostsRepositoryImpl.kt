@@ -9,8 +9,10 @@ import com.benyaamin.bamachallenge.util.NetworkHelper
 import com.benyaamin.bamachallenge.util.Resource
 import com.benyaamin.bamachallenge.util.toEntity
 import com.benyaamin.bamachallenge.util.toPost
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class PostsRepositoryImpl(
     private val postsDao: PostsDao,
@@ -34,7 +36,7 @@ class PostsRepositoryImpl(
                     emit(Resource.OnError(messageId = R.string.fetch_error))
                 }
             }
-        }
+        }.flowOn(Dispatchers.IO)
     }
 
     override suspend fun getPost(id: Int): Flow<Resource<Post>> {
@@ -51,6 +53,6 @@ class PostsRepositoryImpl(
                 emit(Resource.OnError(messageId = R.string.internet_unavailable))
             }
             emit(Resource.OnLoading(false))
-        }
+        }.flowOn(Dispatchers.IO)
     }
 }
