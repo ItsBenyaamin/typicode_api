@@ -4,7 +4,9 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.benyaamin.bamachallenge.data.remote.dto.Post
 import com.benyaamin.bamachallenge.domain.repository.PostRepository
+import com.benyaamin.bamachallenge.util.BaseState
 import com.benyaamin.bamachallenge.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -14,7 +16,7 @@ import javax.inject.Inject
 class PostsViewModel @Inject constructor(
     private val postRepository: PostRepository
 ) : ViewModel() {
-    var state by mutableStateOf(PostsState())
+    var state by mutableStateOf(BaseState<List<Post>>())
 
     init {
         getPosts()
@@ -26,7 +28,7 @@ class PostsViewModel @Inject constructor(
                 .collect {result ->
                     state = when(result) {
                         is Resource.OnLoading -> state.copy(isLoading = result.isLoading)
-                        is Resource.OnSuccess -> state.copy(posts = result.data!!)
+                        is Resource.OnSuccess -> state.copy(data = result.data!!)
                         is Resource.OnError -> state.copy(
                             message = result.message,
                             messageId = result.messageId
