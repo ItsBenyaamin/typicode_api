@@ -1,9 +1,12 @@
 package com.benyaamin.bamachallenge.di
 
 import com.benyaamin.bamachallenge.data.local.PostsDao
+import com.benyaamin.bamachallenge.data.local.UsersDao
 import com.benyaamin.bamachallenge.data.remote.TypiCodeApi
 import com.benyaamin.bamachallenge.data.repository.PostsRepositoryImpl
+import com.benyaamin.bamachallenge.data.repository.UserRepositoryImpl
 import com.benyaamin.bamachallenge.domain.repository.PostRepository
+import com.benyaamin.bamachallenge.domain.repository.UserRepository
 import com.benyaamin.bamachallenge.util.NetworkHelper
 import dagger.Module
 import dagger.Provides
@@ -46,6 +49,16 @@ object RemoteModule {
         networkHelper: NetworkHelper
     ): PostRepository {
         return PostsRepositoryImpl(postsDao, api, networkHelper)
+    }
+
+    @Singleton
+    @Provides
+    fun provideUsersRepository(
+        usersDao: UsersDao,
+        api: TypiCodeApi,
+        networkHelper: NetworkHelper
+    ): UserRepository {
+        return UserRepositoryImpl(usersDao, api, networkHelper)
     }
 
 }
